@@ -1,8 +1,8 @@
-import { Router } from "express";
-const router = Router();
+import express from 'express';
+import getAdmin from '../controller/admin.controller.js';
 
-router.get('/',(req,res)=>{
-    res.send("Admin Route with get method");    
-})
+const router = express.Router();
+
+router.get('/', getAdmin);
 
 export default router;
