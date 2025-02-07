@@ -3,10 +3,10 @@ export const authCallback = async (req, res) => {
     try {
         const { id, firstName, lastName, imageUrl } = req.body;
         // Check if user already exists
-        let user = await user.findOne({ clerkId: id });
+        let user = await User.findOne({ clerkId: id });
         if (!user) {
             // Signup
-            user = await user.create({ clerkId: id, fullName: `${firstName} ${lastName}`, imageUrl });
+            user = await User.create({ clerkId: id, fullName: `${firstName} ${lastName}`, imageUrl });
         }
         res.status(200).json({ success:true });
     } catch (error) {
